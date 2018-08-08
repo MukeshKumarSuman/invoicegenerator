@@ -1,0 +1,211 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<body>
+<section id="invoice-view"></section>
+<form id="invoice_form_edit">
+	<section class="info">
+		<section class="logo">
+			<img src="image/rolafaceSoftwareLogo.png" alt="Rolaface Software"/>
+		</section>
+		<section class="company">
+			<address>
+				<h1 class="company-name">Rolaface Software</h1>
+				86, lane no 5 lower tunwala<br>
+				dehradun-248008<br>
+				contactus@rolaface.com
+			</address>
+		</section>
+		<section class="invoice-details">
+			<h1 class="title">Invoice</h1>
+			<table>
+				<tr>
+					<td>Date:</td>
+					<td>
+						<input type="date" id="invoice-date" style="width: 100%;"/>
+					</td>
+				</tr>
+				<tr>
+					<td>Invoice No.:</td>
+					<td>
+						<input type="number" id="invoice-number" style="width: 100%;"/>
+					</td>
+				</tr>
+				<tr>
+					<td>Due Date:</td>
+					<td>
+						<input type="date" id="invoice-due-date" style="width: 100%;"/>
+					</td>
+				</tr>
+				<tr>
+					<td>Salesperson:</td>
+					<td>
+						<input type="text" id="invoice-sales-person" style="width: 100%;"/>
+					</td>
+				</tr>
+				<tr>
+					<td>Customer PO No.:</td>
+					<td>
+						<input type="text" id="invoice-customer-po-noumber"style="width: 100%;"/>
+					</td>
+				</tr>
+			</table>
+		</section>
+	</section>
+	<section class="bill-to">
+			<h2 class="title">Bill To:</h2>
+			<table>
+					<tr>
+						<td>Name</td>
+						<td>
+							<input id="bill-to-name" type="text"/>
+						</td>
+					</tr>
+					<tr>
+						<td>Company Name:</td>
+						<td>
+							<input id="bill-to-company-name" type="text"/>
+						</td>
+					</tr>
+					<tr>
+						<td>Address</td>
+						<td>
+							<textarea id="bill-to-company-address" cols="40" rows="5"></textarea>
+						</td>
+					</tr>
+					<tr>
+						<td>ZIP:</td>
+						<td>
+							<input id="bill-to-zip" type="number"/>
+						</td>
+					</tr>
+					<tr>
+						<td>Phone/Mob. No.:</td>
+						<td>
+							<input id="bill-to-contact-number" type="number"/>
+						</td>
+					</tr>
+				</table>
+	</section>
+	<section>
+		<section class="item-entry">
+			<table class="item-entry-table">
+				<tr>
+					<th>Qty</th>
+					<th>Item</th>
+					<th>Description</th>
+					<th>Unit Price</th>
+					<th>Total</th>
+				</tr>
+				<tr>
+					<td>
+						<input type="text" class="qty" onchange="calculateIndividualTotalAmount()"/>
+					</td>
+					<td>
+						<input type="text"/>
+					</td>
+					<td>
+						<input type="text"/>
+					</td>
+					<td>
+						<input type="text" class="unit-price" onchange="calculateIndividualTotalAmount()"/>
+					</td>
+					<td>
+						<input type="text" class="individual-total" disabled/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="text" class="qty" onchange="calculateIndividualTotalAmount()"/>
+					</td>
+					<td>
+						<input type="text"/>
+					</td>
+					<td>
+						<input type="text"/>
+					</td>
+					<td>
+						<input type="text" class="unit-price" onchange="calculateIndividualTotalAmount()"/>
+					</td>
+					<td>
+						<input type="text" class="individual-total" disabled/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="text" class="qty" onchange="calculateIndividualTotalAmount()"/>
+					</td>
+					<td>
+						<input type="text"/>
+					</td>
+					<td>
+						<input type="text"/>
+					</td>
+					<td>
+						<input type="text" class="unit-price" onchange="calculateIndividualTotalAmount()"/>
+					</td>
+					<td>
+						<input type="text" class="individual-total" disabled/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="text" class="qty" onchange="calculateIndividualTotalAmount()"/>
+					</td>
+					<td>
+						<input type="text"/>
+					</td>
+					<td>
+						<input type="text"/>
+					</td>
+					<td>
+						<input type="text" class="unit-price" onchange="calculateIndividualTotalAmount()"/>
+					</td>
+					<td>
+						<input type="text" class="individual-total" disabled/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="text" class="qty" onchange="calculateIndividualTotalAmount()"/>
+					</td>
+					<td>
+						<input type="text"/>
+					</td>
+					<td>
+						<input type="text"/>
+					</td>
+					<td>
+						<input type="text" class="unit-price" onchange="calculateIndividualTotalAmount()"/>
+					</td>
+					<td>
+						<input type="text" class="individual-total" disabled/>
+					</td>
+				</tr>
+			</table>
+		</section>
+		<section class="add-remove-row">
+				<button type="button" class="add-row" onclick="addRow()">Add Row</button>
+				<button type="button" class="remove-row" onclick="removeLastRow()">Remove Row</button>
+			</section>
+		<section class="final-amount">
+				<table>
+					<tr>
+						<td>GRAND TOTAL</td>
+						<td class="final-total">0</td>
+					</tr>
+				</table>
+			</section>
+	</section>
+	<div class="view-invoice">
+		<button type="button" onclick="generateInvoice()">View Invoice</button>
+	</div>	
+</form>
+	<script src="js/jquery.js"></script>
+	<script src="js/invoice.js"></script>
+	<script src="js/generateInvoice.js"></script>
+	<link rel="stylesheet" href="css/invoice.css">
+</body>
+</html>
