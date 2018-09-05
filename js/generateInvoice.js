@@ -99,8 +99,11 @@ function getItemIntryHTML(itemEntry) {
 	const $thRow = getTableHeaderRow(itemEntry.headers);
 	$table.append($thRow);
 	for(let i = 0; i < itemEntry.rowsEntry.length; i++) {
-		const $tdRow = getTableDataRow(itemEntry.rowsEntry[i]);
-		$table.append($tdRow);
+		const row = itemEntry.rowsEntry[i];
+		if(row[0]) {
+			const $tdRow = getTableDataRow(itemEntry.rowsEntry[i]);
+			$table.append($tdRow);
+		}
 	}
 	$itemHtml = $itemHtml.append($table);
 	return $itemHtml;
